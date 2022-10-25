@@ -26,7 +26,7 @@ const Login = () => {
 					<div className='text-center lg:text-left'>
 						<h1 className='text-3xl font-bold'>Please Login now!</h1>
 					</div>
-					<div className='card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 login'>
+					<div className='card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100'>
 						<form onSubmit={handleLoginSubmit} className='card-body '>
 							<div className='form-control'>
 								<label className='label'>

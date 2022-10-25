@@ -3,7 +3,7 @@ import React from 'react';
 const Course = ({ courses }) => {
 	return (
 		<div className='max-w-xs rounded-md shadow-md dark:bg-gray-900 dark:text-gray-100'>
-			<img
+			<img 
 				src={courses.picture}
 				alt=''
 				className='object-cover object-center w-full rounded-t-md h-72 dark:bg-gray-500'
@@ -13,8 +13,8 @@ const Course = ({ courses }) => {
 					<h2 className='text-3xl font-semibold tracking-wide'>
 						{courses.name}
 					</h2>
-					<p className='dark:text-gray-100'>
-						{courses.details}
+					<p className='dark:text-gray-100 text-justify'>
+						{courses.details.slice(0,100)}
 					</p>
 				</div>
 				<button

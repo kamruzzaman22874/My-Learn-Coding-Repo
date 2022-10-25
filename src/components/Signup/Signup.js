@@ -31,7 +31,7 @@ const Signup = () => {
 					<div className='text-center lg:text-left mt-[-30px]'>
 						<h1 className='text-2xl font-bold'>Please Signup now!</h1>
 					</div>
-					<div className='card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 login'>
+					<div className='card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100'>
 						<form onSubmit={handleSignSubmit} className='card-body '>
 							<div className='form-control'>
 								<label className='label'>
@@ -78,7 +78,7 @@ const Signup = () => {
 								/>
 								<label className='label'>
 									<Link href='#' className='label-text-alt link link-hover'>
-										Already have an account? or Signup
+										Already have an account? Login
 									</Link>
 								</label>
 							</div>
