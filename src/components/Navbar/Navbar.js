@@ -43,7 +43,7 @@ const Navbar = () => {
 							src='learning.jpg'
 							alt=''
 						/>
-						<Link className='btn btn-ghost ml-[-10px] normal-case lg:text-xl italic mr-0 text-white'>
+						<Link className='btn btn-ghost ml-[-7px] normal-case lg:text-xl italic mr-0 text-white'>
 							Learning Programming
 						</Link>
 					</div>
@@ -51,7 +51,7 @@ const Navbar = () => {
 				<div className='navbar-center hidden lg:flex text-white text-xl font-bold mt-5'>
 					<ul className='menu menu-horizontal p-0'>
 						<li>
-							<Link>Courses</Link>
+							<Link to='/courses'>Courses</Link>
 						</li>
 						<li tabIndex={0}>
 							<Link>Faq</Link>

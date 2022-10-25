@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const Signup = () => {
-    const { createNewUser } = useContext(AuthContext)
+    const { createNewUser } = useContext(AuthContext);
     
      const handleSignSubmit = (e) => {
 				e.preventDefault();
@@ -20,8 +20,11 @@ const Signup = () => {
 						})
 						.catch((error) => {
 							console.log(error);
-						});
-			};
+                        });
+         
+         
+    };
+    
     return (
 			<div className='hero min-h-screen bg-base-200 '>
 				<div className='hero-content flex-col'>

@@ -1,7 +1,7 @@
 import React from 'react';
 
 const SideNav = () => {
-    return (
+return (
 <div className='bg-green-400'>
  <section className="text-gray-600 body-font">
   <div className="container px-5 py-24 mx-auto flex flex-wrap">

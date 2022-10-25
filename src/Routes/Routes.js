@@ -1,5 +1,6 @@
 import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Courses from '../components/Courses/Courses';
 import Home from '../components/Home/Home';
 import Login from '../components/Login/Login';
 import Signup from '../components/Signup/Signup';
@@ -26,6 +27,10 @@ const Routes = () => {
                 {
                     path: '/signup',
                     element : <Signup></Signup>
+                },
+                {
+                    path: '/courses',
+                    element : <Courses></Courses>
                 }
             ]
         }
