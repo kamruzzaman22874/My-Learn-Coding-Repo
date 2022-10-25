@@ -6,7 +6,7 @@ import Course from '../Course/Course';
 const Courses = () => {
     const allCourses = useLoaderData()
     return (
-			<div className='grid grid-cols-3 my-6 mr-12'>
+			<div className='grid grid-cols-3 my-12 mr-20'>
 				<div className='h-full p-3 space-y-2 w-60 lg:ml-10 dark:bg-gray-900 dark:text-gray-100 col-span-1'>
 					<div className='flex items-center p-2 space-x-4'>
 						<div>
