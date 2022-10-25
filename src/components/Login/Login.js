@@ -50,9 +50,15 @@ const Login = () => {
 									className='input input-bordered'
 								/>
 								<label className='label'>
-									<Link to='/signup' className='label-text-alt link link-hover'>
-										Forgot password? or <span>Signup</span>
-									</Link>
+									<p>
+										Forgot password? or
+										<Link
+											to='/signup'
+											className='label-text-alt link link-hover'
+										>
+											<span>  Signup</span>
+										</Link>
+									</p>
 								</label>
 							</div>
 							<div className='form-control mt-6'>

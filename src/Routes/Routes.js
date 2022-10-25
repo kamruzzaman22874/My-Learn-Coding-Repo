@@ -8,33 +8,34 @@ import Main from './layout/Main';
 
 const Routes = () => {
     const routes = createBrowserRouter([
-        {
-            path: '/',
-            element: <Main></Main>,
-            children: [
-                {
-                    path: '/',
-                    element : <Home></Home>
-                },
-                {
-                    path: '/home',
-                    element : <Home></Home>
-                },
-                {
-                    path: '/login',
-                    element : <Login></Login>
-                },
-                {
-                    path: '/signup',
-                    element : <Signup></Signup>
-                },
-                {
-                    path: '/courses',
-                    element : <Courses></Courses>
-                }
-            ]
-        }
-    ])
+			{
+				path: '/',
+				element: <Main></Main>,
+				children: [
+					{
+						path: '/',
+						element: <Home></Home>,
+					},
+					{
+						path: '/home',
+						element: <Home></Home>,
+					},
+					{
+						path: '/login',
+						element: <Login></Login>,
+					},
+					{
+						path: '/signup',
+						element: <Signup></Signup>,
+					},
+					{
+						path: '/courses',
+						element: <Courses></Courses>,
+						loader: () => fetch(`http://localhost:5000/courses`)
+					},
+				],
+			},
+		]);
 
     return (
         <div>

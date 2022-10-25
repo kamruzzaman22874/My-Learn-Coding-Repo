@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const Signup = () => {
-    const { createNewUser } = useContext(AuthContext);
+    const { createNewUser, updateUserProfile } = useContext(AuthContext);
     
      const handleSignSubmit = (e) => {
 				e.preventDefault();
@@ -41,6 +41,17 @@ const Signup = () => {
                                 type='text'
                                 name='name'
 									placeholder='name'
+									className='input input-bordered'
+								/>
+							</div>
+							<div className='form-control'>
+								<label className='label'>
+									<span className='label-text'>Photo URL</span>
+								</label>
+								<input
+                                type='text'
+                                name='PhotoUrl'
+									placeholder='choose photo'
 									className='input input-bordered'
 								/>
 							</div>
