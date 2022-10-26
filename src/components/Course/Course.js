@@ -21,9 +21,8 @@ const Course = ({ courses }) => {
 					</p>
 					<h2 className='text-xl text-green-700'>Course Fee: {course_fee}</h2>
 				</div>
-				
-				<Link to={`/details/${id}`}>
-					
+
+				<Link to={`/course/${courses.id}`}>
 					<button
 						type='button'
 						className='flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md btn dark:bg-violet-400 dark:text-gray-900'

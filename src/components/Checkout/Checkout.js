@@ -17,7 +17,7 @@ const Checkout = () => {
 							<h1 class='title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900'>
 								{name}
 							</h1>
-							<h1>({course_fee})</h1>
+							<h1 className='lg:text-3xl'>Course Fee: ({course_fee})</h1>
 						</div>
 						<p class='mb-8 leading-relaxed text-justify'>{details}</p>
 						<div class='flex justify-center'>
