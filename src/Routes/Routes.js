@@ -1,5 +1,9 @@
 import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Details from '../components/Aside/Details/Details';
+import Blog from '../components/Blog/Blog';
+import Faq from '../components/Blog/Faq';
+import Checkout from '../components/Checkout/Checkout';
 import Courses from '../components/Courses/Courses';
 import Home from '../components/Home/Home';
 import Login from '../components/Login/Login';
@@ -21,6 +25,14 @@ const Routes = () => {
 						element: <Home></Home>,
 					},
 					{
+						path: '/faq',
+						element: <Faq></Faq>,
+					},
+					{
+						path: '/blog',
+						element: <Blog></Blog>,
+					},
+					{
 						path: '/login',
 						element: <Login></Login>,
 					},
@@ -31,14 +43,28 @@ const Routes = () => {
 					{
 						path: '/courses',
 						element: <Courses></Courses>,
-						loader: () => fetch(`http://localhost:5000/courses`),
+						loader: () =>
+							fetch(
+								`https://assignment10-server-side-kamruzzaman22874.vercel.app/courses`
+							),
+					},
+
+					{
+						path: '/course/:id',
+						element: <Details></Details>,
+						loader: ({ params }) =>
+							fetch(
+								`https://assignment10-server-side-kamruzzaman22874.vercel.app/course/${params.id}`
+							),
 					},
 					{
-						path: '/topics/:id',
+						path: '/course/checkout/:id',
 						loader: ({ params }) =>
-							fetch(`http://localhost:5000/courses/${params.id}`),
-						element: <Topics></Topics>,
-					},
+							fetch(
+								`https://assignment10-server-side-kamruzzaman22874.vercel.app/course/${params.id}`
+							),
+						element : <Checkout></Checkout>
+					}
 				],
 			},
 		]);

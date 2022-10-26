@@ -6,3 +6,6 @@
             width: 700px;
             height: 550px;
 }
+.border{
+    border: 1px solid #2c2c2c;
+}

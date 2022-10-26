@@ -22,7 +22,7 @@ const Navbar = () => {
 				<ul className='flex items-center hidden space-x-8 lg:flex'>
 					<li>
 						<Link
-							href='/courses'
+							to='/courses'
 							aria-label='Our product'
 							title='Our product'
 							className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
@@ -32,7 +32,7 @@ const Navbar = () => {
 					</li>
 					<li>
 						<Link
-							href='/'
+							to='/faq'
 							aria-label='Our product'
 							title='Our product'
 							className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
@@ -42,7 +42,7 @@ const Navbar = () => {
 					</li>
 					<li>
 						<Link
-							href='/'
+							to='/blog'
 							aria-label='Product pricing'
 							title='Product pricing'
 							className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
@@ -64,7 +64,7 @@ const Navbar = () => {
 				<ul className='flex items-center hidden space-x-8 lg:flex'>
 					<li>
 						<Link
-							href='/'
+							to='/signup'
 							className='inline-flex btn items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none'
 							aria-label='Sign up'
 							title='Sign up'
@@ -138,7 +138,7 @@ const Navbar = () => {
 									<ul className='space-y-4'>
 										<li>
 											<Link
-												href='/courses'
+												to='/courses'
 												aria-label='Our product'
 												title='Our product'
 												className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
@@ -148,7 +148,7 @@ const Navbar = () => {
 										</li>
 										<li>
 											<Link
-												href='/'
+												to='/blog'
 												aria-label='Our product'
 												title='Our product'
 												className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
@@ -158,7 +158,7 @@ const Navbar = () => {
 										</li>
 										<li>
 											<Link
-												href='/'
+												to='/faq'
 												aria-label='Product pricing'
 												title='Product pricing'
 												className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
@@ -178,7 +178,7 @@ const Navbar = () => {
 										</li>
 										<li>
 											<Link
-												href='/'
+												to='/signup'
 												className='inline-flex btn items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none'
 												aria-label='Sign up'
 												title='Sign up'

@@ -1,10 +1,12 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
+import { BsGithub } from 'react-icons/bs';
+import { FcGoogle } from 'react-icons/fc';
 import './Login.css'
 
 const Login = () => {
-    const {signIn} =useContext(AuthContext)
+    const { signIn, googleSignUp, githubSignUp } = useContext(AuthContext);
 
     const handleLoginSubmit = e => {
         e.preventDefault()
@@ -19,7 +21,24 @@ const Login = () => {
                 form.reset()
             })
         .catch(error => console.log(error))
-    }
+	}
+		const googleSignIn = () => {
+			googleSignUp()
+				.then((result) => {
+					const user = result.user;
+					console.log(user);
+				})
+				.catch((error) => console.error(error));
+		};
+		const githubSignIn = () => {
+			githubSignUp()
+				.then((result) => {
+					const user = result.user;
+					console.log(user);
+				})
+				.catch((error) => console.log(error));
+		};
+
     return (
 			<div className='hero min-h-screen bg-base-200 '>
 				<div className='hero-content flex-col'>
@@ -56,13 +75,29 @@ const Login = () => {
 											to='/signup'
 											className='label-text-alt link link-hover'
 										>
-											<span>  Signup</span>
+											<span> Signup</span>
 										</Link>
 									</p>
 								</label>
 							</div>
 							<div className='form-control mt-6'>
 								<button className='btn btn-primary'>Login</button>
+							</div>
+							<div className='form-control mt-6'>
+								<div px-6>
+									<button
+										onClick={googleSignIn}
+										className='btn btn-primary bg-slate-300 mt-4 mr-2'
+									>
+										<FcGoogle></FcGoogle>
+									</button>
+									<button
+										onClick={githubSignIn}
+										className='btn btn-primary bg-slate-300 mt-4'
+									>
+										<BsGithub></BsGithub>
+									</button>
+								</div>
 							</div>
 						</form>
 					</div>
