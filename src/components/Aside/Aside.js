@@ -3,16 +3,6 @@ import {Link} from 'react-router-dom'
 
 const Aside = ({ course }) => {
 
-	// const check = (id) => {
-	// 	// console.log(id)
-	// 	fetch(`https://assignment10-server-side-kamruzzaman22874.vercel.app/courses?id=${id}`)
-	// 	.then(res => res.json())
-	// 	.then(data => {
-	// 		console.log(data)
-	// 	})
-	// }
-   
-
     return (
 			<li className='dark:bg-gray-800 dark:text-gray-50 my-2'>
 				<Link

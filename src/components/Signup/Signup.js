@@ -12,21 +12,21 @@ const Signup = () => {
 		const name = form.name.value;
 		const email = form.email.value;
 		const password = form.password.value;
-		const photoURL = form.photoURL.value;
-		console.log(name, email, password, photoURL);
+		// const photoURLA = form.photoURLA.value;
+		console.log(name, email, password);
 		createNewUser(email, password)
 			.then((result) => {
 				const user = result.user;
 				console.log(user);
 				form.reset()
-				UpdateProfileInfo(name,photoURL);
+				UpdateProfileInfo(name);
 			})
 			.catch((error) => console.error(error));
 		
 		const UpdateProfileInfo = (name, photoURL) => {
 			const profile = {
 				displayName: name,
-				photoURL: photoURL,
+				// photoURL: photoURLA,
 			};
 			updateUserProfile(profile)
 				.then(() => {})
@@ -65,7 +65,7 @@ const Signup = () => {
 								</label>
 								<input
 									type='text'
-									name='PhotoUrl'
+									name='PhotoURLA'
 									placeholder='choose photo'
 									className='input input-bordered'
 								/>

@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthProvider';
 
 const Navbar = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
+	const { user } = useContext(AuthContext)
+	console.log(user);
 	return (
 		<div className='px-4 py-2 lg:py-0 w-full md:px-24 lg:px-8 shadow-md'>
 			<div className='relative flex items-center justify-between'>

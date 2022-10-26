@@ -9,6 +9,7 @@ const auth = getAuth(app)
 
 const AuthProvider = ({ children }) => {
 	const [user, setUser] = useState('')
+	const [loading , setLoading] = useState(false)
 	
 	const googleProvider = new GoogleAuthProvider();
 	const githubProvider = new GithubAuthProvider();
@@ -29,18 +30,24 @@ const AuthProvider = ({ children }) => {
 	return	signInWithPopup(auth, githubProvider)
 	}
 
-	// useEffect(() => {
-	// 	onAuthStateChanged(auth, currentUser){
-	// 		setUser(currentUser)
-	// 	}
-	// } ,[])
-    const authInfo = {
+	useEffect(() => {
+	const unsubscibe = onAuthStateChanged(auth, (currentUser) => {
+		setUser(currentUser);
+		setLoading(false);
+	});
+		return () => {
+			unsubscibe();
+		};
+	} ,[])
+	const authInfo = {
+			user,
 			createNewUser,
 			signIn,
 			updateUserProfile,
 			googleSignUp,
 			githubSignUp,
-		};
+	};
+	console.log(user);
     return (
         <AuthContext.Provider value={authInfo}>
             {children}
