@@ -6,8 +6,8 @@ import Course from '../Course/Course';
 const Courses = () => {
     const allCourses = useLoaderData()
     return (
-			<div className='grid grid-cols-3 my-12 mr-20'>
-				<div className='h-full p-3 space-y-2 w-60 lg:ml-10 dark:bg-gray-900 dark:text-gray-100 col-span-1'>
+			<div className='lg:grid grid-cols-3 my-12 mr-20'>
+				<div className='h-full p-3 space-y-2 lg:w-64 w-full ml-10 dark:bg-gray-900 dark:text-gray-100 col-span-1'>
 					<div className='flex items-center p-2 space-x-4'>
 						<div>
 							<h2 className='text-2xl font-bold'>Course Category</h2>
@@ -23,7 +23,7 @@ const Courses = () => {
 					</div>
 				</div>
 
-				<div className='grid grid-cols-3 gap-4 col-span-2'>
+				<div className='lg:grid grid-cols-3 ml-16 lg:ml-0 gap-4 col-span-2'>
 					{allCourses.map((courses) => (
 						<Course key={courses.id} courses={courses}></Course>
 					))}

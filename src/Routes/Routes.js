@@ -31,7 +31,13 @@ const Routes = () => {
 					{
 						path: '/courses',
 						element: <Courses></Courses>,
-						loader: () => fetch(`http://localhost:5000/courses`)
+						loader: () => fetch(`http://localhost:5000/courses`),
+					},
+					{
+						path: '/topics/:id',
+						loader: ({ params }) =>
+							fetch(`http://localhost:5000/courses/${params.id}`),
+						element: <Topics></Topics>,
 					},
 				],
 			},
