@@ -9,6 +9,7 @@ import Home from '../components/Home/Home';
 import Login from '../components/Login/Login';
 import Signup from '../components/Signup/Signup';
 import Main from './layout/Main';
+import PrivateRoute from './PrivateRoute/PrivateRoute';
 
 const Routes = () => {
     const routes = createBrowserRouter([
@@ -42,7 +43,7 @@ const Routes = () => {
 					},
 					{
 						path: '/courses',
-						element: <Courses></Courses>,
+						element: <PrivateRoute><Courses></Courses></PrivateRoute>,
 						loader: () =>
 							fetch(
 								`https://assignment10-server-side-kamruzzaman22874.vercel.app/courses`

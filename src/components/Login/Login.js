@@ -1,12 +1,15 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 import { BsGithub } from 'react-icons/bs';
 import { FcGoogle } from 'react-icons/fc';
 import './Login.css'
 
 const Login = () => {
-    const { signIn, googleSignUp, githubSignUp } = useContext(AuthContext);
+	const { signIn, googleSignUp, githubSignUp } = useContext(AuthContext);
+	const navigate = useNavigate();
+	const location = useLocation();
+	const from = location.state?.form?.pathname || '/';
 
     const handleLoginSubmit = e => {
         e.preventDefault()
@@ -18,7 +21,8 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                form.reset()
+				form.reset();
+				navigate(from, { replace: true });
             })
         .catch(error => console.log(error))
 	}
