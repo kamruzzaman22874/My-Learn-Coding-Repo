@@ -39,7 +39,7 @@ const Navbar = () => {
 						</span>
 					</div>
 				</Link>
-				<ul className='flex items-center space-x-8 lg:flex'>
+				<ul className='flex items-center space-x-8 lg:flex sm:block hidden'>
 					<li>
 						<Link
 							to='/home'
