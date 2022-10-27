@@ -11,13 +11,8 @@ const Navbar = () => {
 		};
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const { user, logOut } = useContext(AuthContext);
-	// const [state, setState] = useState(false);
-	// const toggle = () => {
-	// 	setState(state)
-	// }
-	
 
-		const handleLogOut = () => {
+	const handleLogOut = () => {
 			logOut()
 				.then(() => {})
 				.catch((error) => console.error(error));
@@ -44,7 +39,7 @@ const Navbar = () => {
 						</span>
 					</div>
 				</Link>
-				<ul className='flex items-center hidden space-x-8 lg:flex'>
+				<ul className='flex items-center space-x-8 lg:flex'>
 					<li>
 						<Link
 							to='/courses'
@@ -101,11 +96,7 @@ const Navbar = () => {
 							</h1>
 						)}
 					</button>
-					{/* {show ? (
-						<h1 className='text-white'> Dark </h1>
-					) : (
-						<h1 className='text-white'>Light </h1>
-					)} */}
+			
 				</div>
 
 				<div className='hidden lg:block'>
@@ -134,50 +125,6 @@ const Navbar = () => {
 						)}
 					</span>
 				</div>
-				{/* <ul className='flex items-center hidden space-x-8 lg:flex'>
-					<li>
-						{user ? (
-							<div className='dropdown dropdown-end'>
-								<label tabIndex={0} className='btn btn-ghost btn-circle avatar'>
-									<div className='w-[50px] rounded-full'>
-										<div
-											className='tooltip tooltip-open tooltip-bottom'
-											data-tip='hello'
-										>
-											<img src={user.photoURL} />
-										</div>
-									</div>
-								</label>
-								<ul
-									tabIndex={0}
-									className='mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52'
-								>
-									<li>
-										<Link className='justify-between'>
-											{user.displayName}
-											<span className='badge'>New</span>
-										</Link>
-									</li>
-									<li>
-										<Link>Settings</Link>
-									</li>
-									<li>
-										<Link onClick={handleLogOut}>Logout</Link>
-									</li>
-								</ul>
-							</div>
-						) : (
-							<Link
-								to='/signup'
-								className='inline-flex btn items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none'
-								aria-label='Sign up'
-								title='Sign up'
-							>
-								Sign up
-							</Link>
-						)}
-					</li>
-				</ul> */}
 				<div className='lg:hidden'>
 					<button
 						aria-label='Open Menu'
