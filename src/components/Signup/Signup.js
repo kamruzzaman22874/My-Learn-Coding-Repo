@@ -1,7 +1,10 @@
+import { getAuth, sendEmailVerification } from 'firebase/auth';
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
+import app from '../../firebase/firebase.config';
 
+const auth = getAuth(app)
 const Signup = () => {
 
 	const { createNewUser, userprofile } = useContext(AuthContext);
@@ -19,6 +22,7 @@ const Signup = () => {
 				const user = result.user;
 				console.log(user);
 				form.reset()
+				emailVerify();
 				updateUserDetails(name, photoURL);
 			})
 			.catch((error) => console.error(error));
@@ -34,6 +38,12 @@ const Signup = () => {
 				});
 		};
 	}
+
+		const emailVerify = () => {
+		sendEmailVerification(auth.currentUser).then(() => {
+			alert('Please check your email and verify');
+		});
+	};
     return (
 			<div className='hero min-h-screen bg-base-200 mt-0'>
 				<div className='hero-content flex-col'>

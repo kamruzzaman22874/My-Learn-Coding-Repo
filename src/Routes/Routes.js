@@ -43,7 +43,11 @@ const Routes = () => {
 					},
 					{
 						path: '/courses',
-						element: <PrivateRoute><Courses></Courses></PrivateRoute>,
+						element: (
+							<PrivateRoute>
+								<Courses></Courses>
+							</PrivateRoute>
+						),
 						loader: () =>
 							fetch(
 								`https://assignment10-server-side-kamruzzaman22874.vercel.app/courses`
@@ -52,7 +56,11 @@ const Routes = () => {
 
 					{
 						path: '/course/:id',
-						element: <Details></Details>,
+						element: (
+							<PrivateRoute>
+								<Details></Details>
+							</PrivateRoute>
+						),
 						loader: ({ params }) =>
 							fetch(
 								`https://assignment10-server-side-kamruzzaman22874.vercel.app/course/${params.id}`
@@ -64,8 +72,8 @@ const Routes = () => {
 							fetch(
 								`https://assignment10-server-side-kamruzzaman22874.vercel.app/course/${params.id}`
 							),
-						element : <Checkout></Checkout>
-					}
+						element: <Checkout></Checkout>,
+					},
 				],
 			},
 		]);
