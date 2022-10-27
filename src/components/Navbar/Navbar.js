@@ -25,21 +25,31 @@ const Navbar = () => {
 					: 'px-4 py-2 lg:py-0 w-full md:px-24 lg:px-8 shadow-md'
 			}
 		>
-			<div className='relative flex items-center justify-between'>
+			<div className='relative flex items-center justify-between '>
 				<Link
-					href='/'
+					to='/'
 					aria-label='Company'
 					title='Company'
 					className='inline-flex items-center'
 				>
 					<div className='flex'>
-						<img className='w-[30px] lg:w-[70px] ' src={asset} alt='' />
+						<img className='w-[30px] lg:w-[70px] ' src={asset} alt='logo' />
 						<span className='ml-2 text-xl lg:mt-4 mt-2 font-bold tracking-wide text-gray-800 uppercase'>
 							Learn Coding
 						</span>
 					</div>
 				</Link>
 				<ul className='flex items-center space-x-8 lg:flex'>
+					<li>
+						<Link
+							to='/home'
+							aria-label='Our product'
+							title='Our product'
+							className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
+						>
+							Home
+						</Link>
+					</li>
 					<li>
 						<Link
 							to='/courses'
@@ -70,18 +80,7 @@ const Navbar = () => {
 							Blogs
 						</Link>
 					</li>
-					<li>
-						<Link
-							to='/home'
-							aria-label='About us'
-							title='About us'
-							className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
-						>
-							Home
-						</Link>
-					</li>
 				</ul>
-	
 
 				<div className='lg:block hidden ml-5'>
 					<button className='bg-white mt-3' onClick={ToggleData}>
@@ -96,33 +95,34 @@ const Navbar = () => {
 							</h1>
 						)}
 					</button>
-			
 				</div>
 
 				<div className='hidden lg:block'>
 					<span className='mr-2'>
-						{user ? (
+			
+					</span>
+					<span className='py-10'>
+						{user ? 
+							<div className='mb-2'>
+								<div className='tooltip flex items-center gap-5' data-tip={user.displayName}>
+									<button>
+										<img
+											className='w-[50px]  rounded-full'
+											src={user.photoURL}
+											alt='learn coding'
+										/>
+									</button>
 							<button className='btn btn-error' onClick={handleLogOut}>
 								logout
 							</button>
-						) : (
-							<Link to='/login'>
+								</div>
+							</div>
+						: 
+								<Link to='/login'>
 								<button className='btn btn-primary'>Login</button>
 							</Link>
-						)}
-					</span>
-					<span className='py-10'>
-						{user ? (
-							<div className='tooltip ' data-tip={user.displayName}>
-								<button>
-									<img className='w-[50px]  rounded-full' src={user.photoURL} alt="learn coding" />
-								</button>
-							</div>
-						) : (
-							<Link to='/signup'>
-								<button className='btn btn-primary'>Sign Up</button>
-							</Link>
-						)}
+							
+						}
 					</span>
 				</div>
 				<div className='lg:hidden'>

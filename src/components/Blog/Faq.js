@@ -32,16 +32,16 @@ const FAQ = () => {
 										anywhere from six months to a year to learn the basics and
 										be ready for a workplace
 									</p>
-									<a className='text-indigo-500 inline-flex items-center mt-4'>
+									<a href='/' className='text-indigo-500 inline-flex items-center mt-4'>
 										Learn More
 										<svg
 											className='w-4 h-4 ml-2'
 											viewBox='0 0 24 24'
 											stroke='currentColor'
-											stroke-width='2'
+											strokeWidth='2'
 											fill='none'
-											stroke-linecap='round'
-											stroke-linejoin='round'
+											strokeLinecap='round'
+											strokeLinejoin='round'
 										>
 											<path d='M5 12h14'></path>
 											<path d='M12 5l7 7-7 7'></path>
@@ -75,16 +75,16 @@ const FAQ = () => {
 										through code. Let's take a look at the freeCodeCamp home
 										page.
 									</p>
-									<a className='text-indigo-500 inline-flex items-center mt-4'>
+									<a href='/' className='text-indigo-500 inline-flex items-center mt-4'>
 										Learn More
 										<svg
 											className='w-4 h-4 ml-2'
 											viewBox='0 0 24 24'
 											stroke='currentColor'
-											stroke-width='2'
+											strokeWidth='2'
 											fill='none'
-											stroke-linecap='round'
-											stroke-linejoin='round'
+											strokeLinecap='round'
+											strokeLinejoin='round'
 										>
 											<path d='M5 12h14'></path>
 											<path d='M12 5l7 7-7 7'></path>
@@ -117,16 +117,16 @@ const FAQ = () => {
 										do their job well. They are something of a swing, ready to
 										assist wherever needed in the process.
 									</p>
-									<a className='text-indigo-500 inline-flex items-center mt-4'>
+									<a href='/' className='text-indigo-500 inline-flex items-center mt-4'>
 										Learn More
 										<svg
 											className='w-4 h-4 ml-2'
 											viewBox='0 0 24 24'
 											stroke='currentColor'
-											stroke-width='2'
+											strokeWidth='2'
 											fill='none'
-											stroke-linecap='round'
-											stroke-linejoin='round'
+											strokeLinecap='round'
+											strokeLinejoin='round'
 										>
 											<path d='M5 12h14'></path>
 											<path d='M12 5l7 7-7 7'></path>
