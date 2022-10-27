@@ -15,9 +15,7 @@ const Signup = () => {
 		const email = form.email.value;
 		const password = form.password.value;
 		const photoURL = form.profile.value;
-		console.log(name, photoURL, email, password);
-		
-		createNewUser(email, photoURL, password)
+		createNewUser(email,password)
 			.then((result) => {
 				const user = result.user;
 				console.log(user);
@@ -48,7 +46,7 @@ const Signup = () => {
 			<div className='hero min-h-screen bg-base-200 mt-0'>
 				<div className='hero-content flex-col'>
 					<div className='text-center lg:text-left mt-[-30px]'>
-						<h1 className='text-2xl font-bold'>Please Signup now!</h1>
+						<h1 className='text-2xl font-bold'>Please Signup Now!</h1>
 					</div>
 					<div className='card flex-shrink-0  w-full max-w-sm shadow-2xl bg-base-100'>
 						<form onSubmit={handleSignSubmit} className='card-body '>
@@ -96,9 +94,9 @@ const Signup = () => {
 									className='input input-bordered'
 								/>
 								<label className='label'>
-									<Link to='/login' className='label-text-alt link link-hover'>
-										Already have an account? Login
-									</Link>
+								<p>
+									You have an account?Please <Link to='/login'>Login</Link>
+								</p>
 								</label>
 								<div className='form-control mt-6'>
 									<button className='btn btn-primary'>Sign Up</button>

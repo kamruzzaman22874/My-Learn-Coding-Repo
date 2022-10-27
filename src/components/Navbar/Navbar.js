@@ -1,11 +1,21 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
+import asset from '../../asset/image/navbar-logo.jpg'
+
 
 const Navbar = () => {
+	const [show, setShow] = useState(false);
+		const ToggleData = () => {
+			setShow(!show);
+		};
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const { user, logOut } = useContext(AuthContext);
-	console.log(user);
+	// const [state, setState] = useState(false);
+	// const toggle = () => {
+	// 	setState(state)
+	// }
+	
 
 		const handleLogOut = () => {
 			logOut()
@@ -13,7 +23,13 @@ const Navbar = () => {
 				.catch((error) => console.error(error));
 		};
 	return (
-		<div className='px-4 py-2 lg:py-0 w-full md:px-24 lg:px-8 shadow-md'>
+		<div
+			className={
+				show
+					? 'px-4 py-2 lg:py-0 w-full md:px-24 lg:px-8 shadow-md bg-gray-400'
+					: 'px-4 py-2 lg:py-0 w-full md:px-24 lg:px-8 shadow-md'
+			}
+		>
 			<div className='relative flex items-center justify-between'>
 				<Link
 					href='/'
@@ -22,9 +38,9 @@ const Navbar = () => {
 					className='inline-flex items-center'
 				>
 					<div className='flex'>
-						<img className='w-[50px] lg:w-[200px] ' src='nav-logo.jpg' alt='' />
-						<span className='ml-2 text-xl lg:mt-12 font-bold tracking-wide text-gray-800 uppercase'>
-							Learn Programming
+						<img className='w-[30px] lg:w-[70px] ' src={asset} alt='' />
+						<span className='ml-2 text-xl lg:mt-4 mt-2 font-bold tracking-wide text-gray-800 uppercase'>
+							Learn Coding
 						</span>
 					</div>
 				</Link>
@@ -61,22 +77,75 @@ const Navbar = () => {
 					</li>
 					<li>
 						<Link
-							href='/'
+							to='/home'
 							aria-label='About us'
 							title='About us'
 							className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
 						>
-							About us
+							Home
 						</Link>
 					</li>
 				</ul>
-				<ul className='flex items-center hidden space-x-8 lg:flex'>
+	
+
+				<div className='lg:block hidden ml-5'>
+					<button className='bg-white mt-3' onClick={ToggleData}>
+						{!show ? (
+							<h1 className='bg-gray-800 px-3 py-2 rounded-full text-white'>
+								{' '}
+								Dark{' '}
+							</h1>
+						) : (
+							<h1 className=' px-3 py-2 bg-secondary rounded-full text-white'>
+								Light{' '}
+							</h1>
+						)}
+					</button>
+					{/* {show ? (
+						<h1 className='text-white'> Dark </h1>
+					) : (
+						<h1 className='text-white'>Light </h1>
+					)} */}
+				</div>
+
+				<div className='hidden lg:block'>
+					<span className='mr-2'>
+						{user ? (
+							<button className='btn btn-error' onClick={handleLogOut}>
+								logout
+							</button>
+						) : (
+							<Link to='/login'>
+								<button className='btn btn-primary'>Login</button>
+							</Link>
+						)}
+					</span>
+					<span className='py-10'>
+						{user ? (
+							<div className='tooltip ' data-tip={user.displayName}>
+								<button>
+									<img className='w-[50px]  rounded-full' src={user.photoURL} />
+								</button>
+							</div>
+						) : (
+							<Link to='/signup'>
+								<button className='btn btn-primary'>Sign Up</button>
+							</Link>
+						)}
+					</span>
+				</div>
+				{/* <ul className='flex items-center hidden space-x-8 lg:flex'>
 					<li>
 						{user ? (
 							<div className='dropdown dropdown-end'>
 								<label tabIndex={0} className='btn btn-ghost btn-circle avatar'>
 									<div className='w-[50px] rounded-full'>
-										<img src={user.photoURL} />
+										<div
+											className='tooltip tooltip-open tooltip-bottom'
+											data-tip='hello'
+										>
+											<img src={user.photoURL} />
+										</div>
 									</div>
 								</label>
 								<ul
@@ -84,16 +153,16 @@ const Navbar = () => {
 									className='mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52'
 								>
 									<li>
-										<a className='justify-between'>
+										<Link className='justify-between'>
 											{user.displayName}
 											<span className='badge'>New</span>
-										</a>
+										</Link>
 									</li>
 									<li>
-										<a>Settings</a>
+										<Link>Settings</Link>
 									</li>
 									<li>
-										<a onClick={handleLogOut}>Logout</a>
+										<Link onClick={handleLogOut}>Logout</Link>
 									</li>
 								</ul>
 							</div>
@@ -108,7 +177,7 @@ const Navbar = () => {
 							</Link>
 						)}
 					</li>
-				</ul>
+				</ul> */}
 				<div className='lg:hidden'>
 					<button
 						aria-label='Open Menu'
@@ -204,12 +273,12 @@ const Navbar = () => {
 										</li>
 										<li>
 											<Link
-												href='/'
+												to='/'
 												aria-label='About us'
 												title='About us'
 												className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
 											>
-												About us
+												Home
 											</Link>
 										</li>
 										<li>

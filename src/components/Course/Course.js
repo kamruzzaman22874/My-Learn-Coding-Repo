@@ -27,7 +27,7 @@ const Course = ({ courses }) => {
 						type='button'
 						className='flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md btn dark:bg-violet-400 dark:text-gray-900'
 					>
-						Get Premium
+						Details
 					</button>
 				</Link>
 			</div>

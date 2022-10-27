@@ -2,7 +2,7 @@ import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Details from '../components/Aside/Details/Details';
 import Blog from '../components/Blog/Blog';
-import Faq from '../components/Blog/Faq';
+import Faq from '../components/Blog/FAQ';
 import Checkout from '../components/Checkout/Checkout';
 import Courses from '../components/Courses/Courses';
 import Home from '../components/Home/Home';
@@ -43,11 +43,8 @@ const Routes = () => {
 					},
 					{
 						path: '/courses',
-						element: (
-							<PrivateRoute>
-								<Courses></Courses>
-							</PrivateRoute>
-						),
+						element: <Courses></Courses>,
+
 						loader: () =>
 							fetch(
 								`https://assignment10-server-side-kamruzzaman22874.vercel.app/courses`
@@ -57,9 +54,8 @@ const Routes = () => {
 					{
 						path: '/course/:id',
 						element: (
-							<PrivateRoute>
-								<Details></Details>
-							</PrivateRoute>
+							<Details></Details>
+							
 						),
 						loader: ({ params }) =>
 							fetch(
@@ -72,7 +68,11 @@ const Routes = () => {
 							fetch(
 								`https://assignment10-server-side-kamruzzaman22874.vercel.app/course/${params.id}`
 							),
-						element: <Checkout></Checkout>,
+						element: (
+							<PrivateRoute>
+								<Checkout></Checkout>
+							</PrivateRoute>
+						),
 					},
 				],
 			},

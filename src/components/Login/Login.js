@@ -6,26 +6,34 @@ import { FcGoogle } from 'react-icons/fc';
 import './Login.css'
 
 const Login = () => {
-	const { signIn, googleSignUp, githubSignUp } = useContext(AuthContext);
+	const { userSignIn, googleSignUp, githubSignUp } = useContext(AuthContext);
 	const navigate = useNavigate();
 	const location = useLocation();
-	const from = location.state?.form?.pathname || '/';
+	const from = location.state?.from?.pathname || '/';
+	console.log(from);
 
-    const handleLoginSubmit = e => {
-        e.preventDefault()
-        const form = e.target;
-        const email = form.email.value;
-        const password = form.password.value;
-        console.log(email, password);
-        signIn(email, password)
-            .then(result => {
-                const user = result.user;
+	const handleUserLogin = event => { 
+		event.preventDefault();
+		const form = event.target;
+		const email = form.email.value;
+		const password = form.password.value;
+		// console.log(email , password);
+		
+		userSignIn(email, password)
+			.then(result => {
+				const user = result.user;
+				console.log(email , password , user);
 				form.reset();
-                console.log(user);
-				navigate(from, { replace: true });
-            })
-        .catch(error => console.log(error))
+				navigate(`${from}`)
+			})
+			.catch(error => {
+				console.log("Error Found", error)
+			})
+		
 	}
+		
+		
+		
 		const googleSignIn = () => {
 			googleSignUp()
 				.then((result) => {
@@ -47,10 +55,10 @@ const Login = () => {
 			<div className='hero min-h-screen bg-base-200 '>
 				<div className='hero-content flex-col'>
 					<div className='text-center lg:text-left'>
-						<h1 className='text-3xl font-bold'>Please Login now!</h1>
+						<h1 className='text-3xl font-bold'>Please Login Now!</h1>
 					</div>
 					<div className='card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100'>
-						<form onSubmit={handleLoginSubmit} className='card-body '>
+						<form onSubmit={handleUserLogin} className='card-body '>
 							<div className='form-control'>
 								<label className='label'>
 									<span className='label-text'>Email</span>
@@ -67,7 +75,7 @@ const Login = () => {
 									<span className='label-text'>Password</span>
 								</label>
 								<input
-									type='password'
+									type='text'
 									name='password'
 									placeholder='password'
 									className='input input-bordered'
@@ -85,23 +93,21 @@ const Login = () => {
 								</label>
 							</div>
 							<div className='form-control mt-6'>
-								<button className='btn btn-primary'>Login</button>
+								<button className='btn btn-warning'>Login</button>
 							</div>
-							<div className='form-control mt-6'>
-								<div px-6>
-									<button
-										onClick={googleSignIn}
-										className='btn btn-primary bg-slate-300 mt-4 mr-2'
-									>
+							<div className='form-control mt-6 flex '>
+								<button onClick={googleSignIn} className='btn btn-warning mb-2'>
+									<span className='text-2xl'>
 										<FcGoogle></FcGoogle>
-									</button>
-									<button
-										onClick={githubSignIn}
-										className='btn btn-primary bg-slate-300 mt-4'
-									>
+									</span>
+									<span className='px-2'>Google Sign In</span>
+								</button>
+								<button onClick={githubSignIn} className='btn btn-warning'>
+									<span className='text-2xl'>
 										<BsGithub></BsGithub>
-									</button>
-								</div>
+									</span>
+									<span className='px-2'>Github Sign In</span>
+								</button>
 							</div>
 						</form>
 					</div>
