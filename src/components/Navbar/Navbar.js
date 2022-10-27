@@ -124,7 +124,7 @@ const Navbar = () => {
 						{user ? (
 							<div className='tooltip ' data-tip={user.displayName}>
 								<button>
-									<img className='w-[50px]  rounded-full' src={user.photoURL} />
+									<img className='w-[50px]  rounded-full' src={user.photoURL} alt="learn coding" />
 								</button>
 							</div>
 						) : (
