@@ -8,6 +8,7 @@ import './Login.css'
 const Login = () => {
 	const { userSignIn, googleSignUp, githubSignUp } = useContext(AuthContext);
 	const [success, setSuccess] = useState(false);
+	const [error, setError] = useState('');
 	// const [passwordError, setPasswordError] = useState('');
 	const navigate = useNavigate();
 	const location = useLocation();
@@ -26,11 +27,12 @@ const Login = () => {
 				console.log(email , password , user);
 				form.reset();
 				setSuccess(true);
-				
 				navigate(`${from}`)
 			})
 			.catch(error => {
 				console.log("Error Found", error)
+				setError(error.message);
+				form.reset();
 			})
 		
 	}
@@ -84,6 +86,7 @@ const Login = () => {
 									className='input input-bordered'
 									required
 								/>
+
 								<label className='label'>
 									<p>
 										Forgot password? or
@@ -95,6 +98,11 @@ const Login = () => {
 										</Link>
 									</p>
 								</label>
+								{error && (
+									<p className='text-red-500'>
+										Your Email Or Password is Wrong
+									</p>
+								)}
 							</div>
 							{success && <span>Successfully log in</span>}
 							<div className='form-control mt-6'>

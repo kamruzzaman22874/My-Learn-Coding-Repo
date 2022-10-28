@@ -25,7 +25,7 @@ const Navbar = () => {
 					: 'px-4 py-2 lg:py-0 w-full md:px-24 lg:px-8 shadow-md'
 			}
 		>
-			<div className='relative flex items-center justify-between '>
+			<div className='relative flex items-center justify-between'>
 				<Link
 					to='/'
 					aria-label='Company'
