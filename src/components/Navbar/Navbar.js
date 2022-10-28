@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
-import asset from '../../asset/image/navbar-logo.jpg'
+import asset from '../../asset/image/logo.png'
 
 
 const Navbar = () => {
@@ -33,7 +33,11 @@ const Navbar = () => {
 					className='inline-flex items-center'
 				>
 					<div className='flex'>
-						<img className='w-[30px] lg:w-[70px] ' src={asset} alt='logo' />
+						<img
+							className='w-[30px] lg:w-[70px] py-3 '
+							src={asset}
+							alt='logo'
+						/>
 						<span className='ml-2 text-xl lg:mt-4 mt-2 font-bold tracking-wide text-gray-800 uppercase'>
 							Learn Coding
 						</span>
@@ -82,8 +86,8 @@ const Navbar = () => {
 					</li>
 				</ul>
 
-				<div className='lg:block hidden ml-5'>
-					<button className='bg-white mt-3' onClick={ToggleData}>
+				<div className='lg:block sm:block  ml-5'>
+					<button className='mt-3' onClick={ToggleData}>
 						{!show ? (
 							<h1 className='bg-gray-800 px-3 py-2 rounded-full text-white'>
 								{' '}
@@ -98,13 +102,14 @@ const Navbar = () => {
 				</div>
 
 				<div className='hidden lg:block'>
-					<span className='mr-2'>
-			
-					</span>
+					<span className='mr-2'></span>
 					<span className='py-10'>
-						{user ? 
-							<div className='mb-2'>
-								<div className='tooltip flex items-center gap-5' data-tip={user.displayName}>
+						{user ? (
+							<div className='mb-2 flex  gap-6'>
+								<div
+									className='tooltip flex items-center gap-5 tooltip-bottom tooltip-secondary'
+									data-tip={user.displayName}
+								>
 									<button>
 										<img
 											className='w-[50px]  rounded-full'
@@ -112,17 +117,16 @@ const Navbar = () => {
 											alt='learn coding'
 										/>
 									</button>
-							<button className='btn btn-error' onClick={handleLogOut}>
-								logout
-							</button>
 								</div>
+								<button className='btn btn-warning' onClick={handleLogOut}>
+									logout
+								</button>
 							</div>
-						: 
-								<Link to='/login'>
+						) : (
+							<Link to='/login'>
 								<button className='btn btn-primary'>Login</button>
 							</Link>
-							
-						}
+						)}
 					</span>
 				</div>
 				<div className='lg:hidden'>

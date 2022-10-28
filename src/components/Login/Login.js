@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 import { BsGithub } from 'react-icons/bs';
@@ -7,21 +7,26 @@ import './Login.css'
 
 const Login = () => {
 	const { userSignIn, googleSignUp, githubSignUp } = useContext(AuthContext);
+	const [success, setSuccess] = useState(false);
+	// const [passwordError, setPasswordError] = useState('');
 	const navigate = useNavigate();
 	const location = useLocation();
 	const from = location.state?.from?.pathname || '/';
 
 	const handleUserLogin = event => { 
 		event.preventDefault();
+		setSuccess(false)
 		const form = event.target;
 		const email = form.email.value;
 		const password = form.password.value;
-		
+
 		userSignIn(email, password)
 			.then(result => {
 				const user = result.user;
 				console.log(email , password , user);
 				form.reset();
+				setSuccess(true);
+				
 				navigate(`${from}`)
 			})
 			.catch(error => {
@@ -29,14 +34,12 @@ const Login = () => {
 			})
 		
 	}
-		
-		
-		
 		const googleSignIn = () => {
 			googleSignUp()
 				.then((result) => {
 					const user = result.user;
 					console.log(user);
+					navigate(`${from}`);
 				})
 				.catch((error) => console.error(error));
 		};
@@ -45,6 +48,7 @@ const Login = () => {
 				.then((result) => {
 					const user = result.user;
 					console.log(user);
+					navigate(`${from}`);
 				})
 				.catch((error) => console.log(error));
 		};
@@ -66,6 +70,7 @@ const Login = () => {
 									name='email'
 									placeholder='email'
 									className='input input-bordered'
+									required
 								/>
 							</div>
 							<div className='form-control'>
@@ -73,10 +78,11 @@ const Login = () => {
 									<span className='label-text'>Password</span>
 								</label>
 								<input
-									type='text'
+									type='password'
 									name='password'
 									placeholder='password'
 									className='input input-bordered'
+									required
 								/>
 								<label className='label'>
 									<p>
@@ -90,6 +96,7 @@ const Login = () => {
 									</p>
 								</label>
 							</div>
+							{success && <span>Successfully log in</span>}
 							<div className='form-control mt-6'>
 								<button className='btn btn-warning'>Login</button>
 							</div>

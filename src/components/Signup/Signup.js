@@ -1,11 +1,13 @@
 import { getAuth, sendEmailVerification } from 'firebase/auth';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 import app from '../../firebase/firebase.config';
 
 const auth = getAuth(app)
 const Signup = () => {
+	const [success, setSuccess] = useState(false);
+	const [passwordError, setPasswordError] = useState('');
 
 	const { createNewUser, userprofile } = useContext(AuthContext);
 	const handleSignSubmit = (e) => {
@@ -15,6 +17,20 @@ const Signup = () => {
 		const email = form.email.value;
 		const password = form.password.value;
 		const photoURL = form.profile.value;
+		if (password.length < 6) {
+			setPasswordError('password should be at least 6 characters');
+			return;
+		}
+		if (!/(?=.*[A-Z].*[A-Z])/.test(password)) {
+			setPasswordError('Please provide at least two uppercase');
+			return;
+		}
+
+		if (!/(?=.*[!@#$&*])/.test(password)) {
+			setPasswordError('Please add at least one special character');
+			return;
+		}
+		setPasswordError('');
 		createNewUser(email,password)
 			.then((result) => {
 				const user = result.user;
@@ -22,6 +38,8 @@ const Signup = () => {
 				form.reset()
 				emailVerify();
 				updateUserDetails(name, photoURL);
+				setSuccess(true);
+				
 			})
 			.catch((error) => console.error(error));
 		
@@ -57,7 +75,8 @@ const Signup = () => {
 								<input
 									type='text'
 									name='name'
-									placeholder='name'
+									placeholder='full name'
+									required
 									className='input input-bordered '
 								/>
 							</div>
@@ -81,6 +100,7 @@ const Signup = () => {
 									name='email'
 									placeholder='email'
 									className='input input-bordered'
+									required
 								/>
 							</div>
 							<div className='form-control'>
@@ -92,12 +112,15 @@ const Signup = () => {
 									name='password'
 									placeholder='password'
 									className='input input-bordered'
+									required
 								/>
 								<label className='label'>
-								<p>
-									You have an account?Please <Link to='/login'>Login</Link>
-								</p>
+									<p>
+										You have an account?Please <Link to='/login'>Login</Link>
+									</p>
 								</label>
+								{passwordError}
+								{success}
 								<div className='form-control mt-6'>
 									<button className='btn btn-primary'>Sign Up</button>
 								</div>

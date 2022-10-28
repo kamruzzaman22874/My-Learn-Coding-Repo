@@ -22,7 +22,7 @@ const Blog = () => {
 								</p>
 							</details>
 							<details className='w-full border rounded-lg'>
-								<summary className='px-4 py-6 text-2xl focus:outline-none focus-visible:ring-violet-400'>
+								<summary className='px-4 py-6 focus:outline-none text-xl font-semibold focus-visible:ring-violet-400'>
 									Why are you using firebase? What other options do you have to
 									implement authentication?
 								</summary>
@@ -31,7 +31,7 @@ const Blog = () => {
 									SDKs, and ready-made UI libraries to authenticate users to
 									your app.
 								</p>
-								<p className='px-4 py-6 text-2xl pt-0 ml-4 -mt-4 dark:text-gray-400'>
+								<p className='px-4 py-6 pt-0 ml-4 -mt-4 dark:text-gray-400'>
 									On this page. Add and initialize the Authentication SDK.
 									(Optional) Prototype and test with Firebase Local Emulator
 									Suite. Sign up new users. Sign in existing users. Set an
@@ -48,6 +48,18 @@ const Blog = () => {
 									condition. If the user is not authenticated he will be
 									redirected to the login page and the user can only access the
 									authenticated routes If he is authenticated (Logged in).
+								</p>
+							</details>
+
+							<details className='w-full border rounded-lg'>
+								<summary className='px-4 py-6 focus:outline-none text-xl font-semibold focus-visible:ring-violet-400'>
+									What is node js and how does it work?
+								</summary>
+								<p className='px-4 py-6 pt-0 ml-4 -mt-4 dark:text-gray-400'>
+									Node js is really poular because it lets you go out of the
+									browser to be able to do certain things like for example
+									accesing files in the computer,etc.Node js is also popular
+									because it uses javascript
 								</p>
 							</details>
 						</div>
